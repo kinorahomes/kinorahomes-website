@@ -3,7 +3,6 @@ import {
   PageHero,
   Photo,
   BottomBanner,
-  Values,
 } from "../../components/Story";
 
 import {
@@ -13,6 +12,7 @@ import {
   Star,
 } from "lucide-react";
 
+// FOUR PILLARS OF OUR APPROACH
 const pillars = [
   {
     title: "Relationships",
@@ -86,9 +86,6 @@ export default function OurApproach() {
           )
         )}
       </section>
-
-      {/* KINORA VALUES */}
-      <Values heading={false} />
 
       {/* BOTTOM BANNER */}
       <BottomBanner
