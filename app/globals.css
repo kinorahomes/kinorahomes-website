@@ -512,3 +512,117 @@
 .nav-items a:last-child:hover {
   color: #ffffff !important;
 }
+
+
+/* =========================================
+   KINORA HOMES - MOBILE FOOTER FIX
+========================================= */
+
+@media (max-width: 768px) {
+
+  /* Reduce footer spacing */
+  .footer {
+    padding: 45px 22px 20px;
+  }
+
+  /* Stack footer sections neatly */
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 35px;
+    width: 100%;
+  }
+
+  /* Footer heading */
+  .footer-inner h2 {
+    font-size: clamp(28px, 7vw, 38px);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin: 15px 0 20px;
+    max-width: 100%;
+  }
+
+  /* Footer description */
+  .footer-inner > div:first-child > p:not(.eyebrow) {
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* Footer navigation links */
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    row-gap: 18px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .footer-links a {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  /* Bottom copyright section */
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 35px;
+    padding-top: 20px;
+    font-size: 13px;
+  }
+}
+
+/* Extra small mobile screens */
+@media (max-width: 400px) {
+  .footer {
+    padding: 35px 18px 18px;
+  }
+
+  .footer-inner h2 {
+    font-size: 28px;
+  }
+
+  .footer-links {
+    column-gap: 12px;
+  }
+
+  .footer-links a {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================
+   MOBILE NAVIGATION - ACTIVE UNDERLINE FIX
+========================================= */
+
+@media (max-width: 768px) {
+
+  /* Remove the existing misplaced underline */
+  .nav-items a.current::after,
+  .nav-items a.current::before {
+    content: none !important;
+    display: none !important;
+  }
+
+  /* Remove any existing bottom border */
+  .nav-items a.current {
+    border-bottom: none !important;
+    position: relative;
+    text-decoration: underline !important;
+    text-decoration-color: #ffb000 !important;
+    text-decoration-thickness: 3px !important;
+    text-underline-offset: 6px !important;
+  }
+
+  /* Remove underline from the conversation button */
+  .nav-items a.nav-cta {
+    text-decoration: none !important;
+  }
+}
