@@ -1,4 +1,4 @@
-# Kinora Homes — Variation 2 Interactive Storybook
+# Kinora Homes
 
 Complete Next.js App Router website using TypeScript, CSS, and lucide-react.
 
@@ -10,7 +10,7 @@ Complete Next.js App Router website using TypeScript, CSS, and lucide-react.
 4. Visit http://localhost:3000.
 
 ## Pages
-Home, Our Home, Our Approach, Life at Kinora, About Us, Careers, Contact.
+Main, Our Home, Our Approach, Life at Kinora, About Us, Careers, Contact.
 
 ## Design
 Built to reproduce the approved Variation 2 art direction with colorful storybook imagery, rounded type, watercolor-inspired sections, illustrated home, and clickable room labels. This is a responsive web implementation, not a pixel-for-pixel copy of the concept board. Some images are cropped from the approved concept art and should be replaced with actual authorized photos before launch.
