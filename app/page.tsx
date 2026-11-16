@@ -20,7 +20,7 @@ export default function Home() {
             </p>
 
             <h1>
-              A Place
+              A Place to
               <br />
               Belong.
               <br />
