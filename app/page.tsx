@@ -31,7 +31,7 @@ export default function Home() {
               Every child deserves to feel safe, respected, heard
               and valued. At Kinora Homes, we believe that a sense of
               belonging and supportive relationships can help children
-              and youth recognize their strenghts, build confidence and 
+              and youth recognize their strengths, build confidence and 
               work toward meaningful goals.
             </p>
 
