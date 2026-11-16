@@ -626,3 +626,163 @@
     text-decoration: none !important;
   }
 }
+
+
+/* =========================================
+   KINORA HOMES - NEW LOGO NAVIGATION THEME
+========================================= */
+
+/* Navigation text and shape */
+.nav-items a:not(.nav-cta) {
+  color: #08294c;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 10px 15px;
+  transition: transform 0.2s ease,
+              filter 0.2s ease;
+}
+
+/* Logo-inspired pastel highlights */
+.nav-items a:nth-child(1) {
+  background-color: #ffe4b8; /* Warm orange */
+}
+
+.nav-items a:nth-child(2) {
+  background-color: #dceedd; /* Soft green */
+}
+
+.nav-items a:nth-child(3) {
+  background-color: #ffe6a0; /* Golden yellow */
+}
+
+.nav-items a:nth-child(4) {
+  background-color: #d4efeb; /* Teal */
+}
+
+.nav-items a:nth-child(5) {
+  background-color: #dce9f5; /* Soft navy blue */
+}
+
+.nav-items a:nth-child(6) {
+  background-color: #f9e5c9; /* Light orange */
+}
+
+.nav-items a:nth-child(7) {
+  background-color: #d6ede2; /* Mint green */
+}
+
+/* Hover animation */
+.nav-items a:not(.nav-cta):hover {
+  transform: translateY(-2px);
+  filter: saturate(1.25);
+}
+
+/* Active navigation underline */
+.nav-items a.current {
+  position: relative;
+}
+
+/* Start a Conversation button */
+.nav-items a.nav-cta,
+.nav-items a.nav-cta:hover {
+  background: #08294c !important;
+  color: #ffffff !important;
+  border-radius: 12px;
+}
+
+.nav-items a.nav-cta svg {
+  color: #ffffff;
+  stroke: #ffffff;
+}
+
+/* Mobile active link underline */
+@media (max-width: 768px) {
+  .nav-items a.current::before,
+  .nav-items a.current::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  .nav-items a.current {
+    text-decoration: underline !important;
+    text-decoration-color: #ffb000 !important;
+    text-decoration-thickness: 3px !important;
+    text-underline-offset: 6px !important;
+  }
+
+  .nav-items a.nav-cta {
+    text-decoration: none !important;
+  }
+}
+
+
+/* =========================================
+   HOMEPAGE PHOTO MOSAIC - FULL IMAGE FIT
+========================================= */
+
+.photo-mosaic .photo-card {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: hidden;
+}
+
+/* Display the entire image */
+.photo-mosaic .photo-card img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  display: block;
+}
+
+/* Keep rounded corners */
+.photo-mosaic .photo-card {
+  border-radius: 18px;
+}
+
+
+/* DAILY LIFE - SINGLE TAB */
+
+.filter-tabs .daily-life-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffb000;
+  color: #08294c;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   LIFE AT KINORA - FULL IMAGE DISPLAY
+========================================= */
+
+/* Make the image box larger */
+.timeline-row .photo-card {
+  width: 100%;
+  height: 280px !important;
+  min-height: 280px;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* Show the entire image without cropping */
+.timeline-row .photo-card img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .timeline-row .photo-card {
+    height: 240px !important;
+    min-height: 240px;
+  }
+}
+

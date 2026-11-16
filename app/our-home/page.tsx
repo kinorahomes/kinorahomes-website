@@ -56,7 +56,7 @@ export default function OurHome() {
           />
 
           <Photo
-            src="/outdoor.png"
+            src="/outdoors.png"
             alt="Green outdoor setting"
             caption="Room to enjoy the outdoors"
           />

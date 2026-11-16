@@ -33,7 +33,7 @@ const pillars = [
     copy: "Encouragement, learning and practical life skills that nurture confidence and independence.",
     icon: Leaf,
     color: "green",
-    image: "/grow.png",
+    image: "/KPL.webp",
   },
   {
     title: "Opportunities",

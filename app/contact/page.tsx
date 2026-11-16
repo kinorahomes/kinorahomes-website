@@ -1,82 +1,94 @@
 
 "use client";
 
-import { useState } from "react";
-import {
-  Mail,
-  MapPin,
-  Send,
-  MessageCircle,
-} from "lucide-react";
-
+import { useState, type FormEvent } from "react";
+import { Mail, Send } from "lucide-react";
 import { Photo } from "../../components/Story";
 
 export default function Contact() {
-  // CONTACT FORM STATE
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+  const [status, setStatus] = useState("");
+  const [sending, setSending] = useState(false);
 
-  // PREPARE EMAIL
-  function submit(e: React.FormEvent<HTMLFormElement>) {
+  async function submit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setSending(true);
+    setStatus("");
 
-    const body = `Name: ${name}
-Email: ${email}
+    const data = new URLSearchParams({
+      "form-name": "kinora-contact",
+      name,
+      email,
+      subject,
+      message,
+    });
 
-${message}`;
+    try {
+      const response = await fetch("/__forms.html", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: data.toString(),
+      });
 
-    window.location.href = `mailto:care@kinorahomes.ca?subject=${encodeURIComponent(
-      subject || "Kinora Homes inquiry"
-    )}&body=${encodeURIComponent(body)}`;
+      if (!response.ok) {
+        throw new Error("Submission failed");
+      }
+
+      setStatus("Thank you! Your message has been submitted.");
+      setName("");
+      setEmail("");
+      setSubject("");
+      setMessage("");
+    } catch {
+      setStatus(
+        "Your message could not be sent. Please try again or email admin@kinorahomes.ca."
+      );
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
     <main>
-      {/* CONTACT US HERO SECTION */}
+      {/* CONTACT HERO */}
       <section className="page-hero pink">
         <div className="page-hero-inner">
           <div className="page-hero-copy">
-            <p className="eyebrow">
-              CONTACT US
-            </p>
+            <p className="eyebrow">CONTACT US</p>
 
             <h1>Get in Touch</h1>
-
             <h2>We’re here to help.</h2>
 
             <p>
-              Whether you have a question, would
-              like to learn more about our programs,
-              or are interested in working with us,
-              we’d love to hear from you.
+              Whether you have a question, would like to
+              learn more about our programs, or are
+              interested in working with us, we’d love
+              to hear from you.
             </p>
 
-            {/* CONTACT INFORMATION */}
             <div className="contact-details">
-              <a href="mailto:care@kinorahomes.ca">
+              <a href="mailto:admin@kinorahomes.ca">
                 <Mail />
-                care@kinorahomes.ca
+                admin@kinorahomes.ca
               </a>
-
-              <span>
-                <MapPin />
-                Ontario, Canada
-              </span>
             </div>
           </div>
 
           <div className="page-hero-art">
             <Photo
               src="/getintouch.png"
-              alt="Get in touch"
+              alt="Get in touch with Kinora Homes"
             />
           </div>
         </div>
       </section>
 
-      {/* CONTACT FORM SECTION */}
+      {/* CONTACT FORM */}
       <section className="section contact-section">
         <div>
           <p className="eyebrow">
@@ -84,31 +96,37 @@ ${message}`;
           </p>
 
           <h2>
-            Questions today.
+            Reach Out Today.
             <br />
-            <em>Brighter tomorrows together.</em>
+            <em>Let's Support Brighter Tomorrows.</em>
           </h2>
 
           <p>
-            Use the form to prepare an email to
-            our team. Your email application will
-            open so you can review and send it.
+            Have a question or inquiry? Complete the form
+            and our team will get back to you.
           </p>
         </div>
 
-        {/* CONTACT FORM */}
         <form
           className="contact-form"
+          name="kinora-contact"
+          method="POST"
+          data-netlify="true"
           onSubmit={submit}
         >
+          <input
+            type="hidden"
+            name="form-name"
+            value="kinora-contact"
+          />
+
           <label>
             Your name
             <input
+              name="name"
               required
               value={name}
-              onChange={(e) =>
-                setName(e.target.value)
-              }
+              onChange={(e) => setName(e.target.value)}
               placeholder="Full name"
             />
           </label>
@@ -117,11 +135,10 @@ ${message}`;
             Email address
             <input
               type="email"
+              name="email"
               required
               value={email}
-              onChange={(e) =>
-                setEmail(e.target.value)
-              }
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
             />
           </label>
@@ -129,10 +146,9 @@ ${message}`;
           <label>
             Subject
             <input
+              name="subject"
               value={subject}
-              onChange={(e) =>
-                setSubject(e.target.value)
-              }
+              onChange={(e) => setSubject(e.target.value)}
               placeholder="What is your inquiry about?"
             />
           </label>
@@ -140,12 +156,11 @@ ${message}`;
           <label>
             Message
             <textarea
+              name="message"
               required
               rows={6}
               value={message}
-              onChange={(e) =>
-                setMessage(e.target.value)
-              }
+              onChange={(e) => setMessage(e.target.value)}
               placeholder="How can we help?"
             />
           </label>
@@ -153,16 +168,17 @@ ${message}`;
           <button
             className="pill-button"
             type="submit"
+            disabled={sending}
           >
-            Prepare Email
+            {sending ? "Sending..." : "Send Message"}
             <Send size={17} />
           </button>
 
-          <small>
-            This form opens your email application;
-            it does not submit information directly
-            to the website.
-          </small>
+          {status && (
+            <p role="status" aria-live="polite">
+              {status}
+            </p>
+          )}
         </form>
       </section>
     </main>

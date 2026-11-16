@@ -1,8 +1,6 @@
 
 "use client";
 
-import { useState } from "react";
-
 import {
   Sun,
   BookOpen,
@@ -17,36 +15,31 @@ import {
   BottomBanner,
 } from "../../components/Story";
 
-// LIFE AT KINORA - DAILY EXPERIENCES
 const items = [
   {
     time: "Morning",
     desc: "A calm start with routines that build comfort and consistency.",
-    category: "breakfast",
-    image: "/nutritional.png",
+    image: "/food.jpeg",
     icon: Sun,
     color: "yellow",
   },
   {
     time: "School & Learning",
     desc: "Encouragement with education, personal interests and new skills.",
-    category: "School & Learning",
-    image: "/grow.png",
+    image: "/library.webp",
     icon: BookOpen,
     color: "blue",
   },
   {
     time: "Afternoon",
     desc: "Activities, recreation, life skills and time to explore interests.",
-    category: "Recreation",
-    image: "/outdoor.png",
+    image: "/afternoon.png",
     icon: TreePine,
     color: "coral",
   },
   {
     time: "Shared Meals",
     desc: "Opportunities to connect over everyday moments.",
-    category: "Meals",
     image: "/living.png",
     icon: Utensils,
     color: "green",
@@ -54,42 +47,23 @@ const items = [
   {
     time: "Community",
     desc: "Connections and experiences beyond the home.",
-    category: "Community",
-    image: "/explore.png",
+    image: "/community.jpeg",
     icon: Users,
     color: "purple",
   },
   {
     time: "Evening",
     desc: "Time to unwind, reconnect and settle into familiar routines.",
-    category: "Daily Life",
-    image: "/sharedspace.png",
+    image: "/evening.png",
     icon: Heart,
     color: "pink",
   },
 ];
 
-// FILTER CATEGORIES
-const filters = [
-  "Daily Life",
-  "Meals",
-  "School & Learning",
-  "Community",
-  "Recreation",
-];
-
 export default function LifeAtKinora() {
-  const [filter, setFilter] = useState("Daily Life");
-
-  // FILTER DAILY EXPERIENCES
-  const visible =
-    filter === "Daily Life"
-      ? items
-      : items.filter((item) => item.category === filter);
-
   return (
     <main>
-      {/* LIFE AT KINORA HEADER */}
+      {/* PAGE HEADER */}
       <section className="life-header">
         <p className="eyebrow">
           EVERYDAY EXPERIENCES
@@ -104,31 +78,21 @@ export default function LifeAtKinora() {
           independence and a sense of belonging.
         </p>
 
-        {/* INTERACTIVE FILTER TABS */}
+        {/* DAILY LIFE TAB ONLY */}
         <div
           className="filter-tabs"
           role="group"
-          aria-label="Explore daily life"
+          aria-label="Daily life"
         >
-          {filters.map((f) => (
-            <button
-              type="button"
-              key={f}
-              onClick={() => setFilter(f)}
-              aria-pressed={filter === f}
-              className={
-                filter === f ? "selected" : ""
-              }
-            >
-              {f}
-            </button>
-          ))}
+          <span className="daily-life-tab">
+            Daily Life
+          </span>
         </div>
       </section>
 
-      {/* DAILY EXPERIENCES TIMELINE */}
+      {/* DAILY ACTIVITIES */}
       <section className="section timeline">
-        {visible.map(
+        {items.map(
           ({ time, desc, image, icon: Icon, color }) => (
             <article
               className="timeline-row"

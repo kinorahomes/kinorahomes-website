@@ -22,14 +22,17 @@ export default function Home() {
             <h1>
               A Place
               <br />
-              <span className="green-ink">To</span>{" "}
-              <span className="coral-ink">Belong</span>
+              Belong.
+              <br />
+              A Place to Grow.
             </h1>
 
             <p>
-              Explore the spaces, experiences and
-              relationships that make Kinora a place
-              for children and youth to truly belong.
+              Every child deserves to feel safe, respected, heard
+              and valued. At Kinora Homes, we believe that a sense of
+              belonging and supportive relationships can help children
+              and youth recognize their strenghts, build confidence and 
+              work toward meaningful goals.
             </p>
 
             <ButtonLink href="/our-home">
@@ -46,7 +49,7 @@ export default function Home() {
           {/* NEW HOMEPAGE IMAGE */}
           <div className="hero-home-photo">
             <Image
-              src="/home.png"
+              src="/living2.png"
               alt="Kinora Homes welcoming living room, kitchen and dining area"
               width={1600}
               height={900}
@@ -71,7 +74,9 @@ export default function Home() {
             <h2>
               Where Connections Grow.
               <br />
-              <em>New Chapters Begin.</em>
+              <em className="sage-ink">
+                New Chapters Begin.
+              </em>
             </h2>
 
             <p>
@@ -93,15 +98,15 @@ export default function Home() {
               alt="Cozy family living room"
               caption="Connect"
             />
-
+            <div className="explore-full-image">
             <Photo
-              src="/learn.png"
+              src="/library.webp"
               alt="Creative learning space"
               caption="Learn"
             />
-
+            </div>
             <Photo
-              src="/explore.png"
+              src="/community.jpeg"
               alt="Outdoor green space"
               caption="Explore"
             />
