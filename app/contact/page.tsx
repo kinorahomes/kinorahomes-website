@@ -98,7 +98,7 @@ export default function Contact() {
           <h2>
             Reach Out Today.
             <br />
-            <em>Let's Support Brighter Tomorrows.</em>
+            <em>Let&apos;s Support Brighter Tomorrows.</em>
           </h2>
 
           <p>
