@@ -14,7 +14,7 @@ export default function OurHome() {
         eyebrow="OUR HOME"
         title="Designed for Everyday Living"
         subtitle="A warm, comfortable and supportive environment where children and youth can feel safe, supported and at home."
-        image="/living.png"
+        image="/livinggg.png"
       />
 
       {/* HOME FEATURES */}
@@ -44,19 +44,19 @@ export default function OurHome() {
         {/* HOME PHOTO GALLERY */}
         <div className="gallery-grid">
           <Photo
-            src="/sharedspace.png"
+            src="/space.jpeg"
             alt="Comfortable living space"
             caption="Comfortable shared spaces"
           />
 
           <Photo
-            src="/welcoming.png"
+            src="/atmosphere.png"
             alt="Warm residential interior"
             caption="A welcoming atmosphere"
           />
 
           <Photo
-            src="/outdoors.png"
+            src="/outdoorss.jpeg"
             alt="Green outdoor setting"
             caption="Room to enjoy the outdoors"
           />

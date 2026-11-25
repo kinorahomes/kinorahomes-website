@@ -40,7 +40,7 @@ const items = [
   {
     time: "Shared Meals",
     desc: "Opportunities to connect over everyday moments.",
-    image: "/living.png",
+    image: "/sharedmeal.png",
     icon: Utensils,
     color: "green",
   },
